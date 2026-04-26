@@ -13,23 +13,27 @@
   <property name="windowTitle">
    <string>PyroVision-Control</string>
   </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>:/ressources/Logo_Alpha.png</normaloff>:/ressources/Logo_Alpha.png</iconset>
+  </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QVBoxLayout" name="verticalLayout">
     <item>
-     <widget class="QGroupBox" name="connectionGroup">
+     <widget class="QGroupBox" name="groupBox_Connection">
       <property name="title">
        <string>Connection</string>
       </property>
       <layout class="QHBoxLayout" name="horizontalLayout">
        <item>
-        <widget class="QLabel" name="label_ip">
+        <widget class="QLabel" name="label_IP">
          <property name="text">
           <string>IP Address:</string>
          </property>
         </widget>
        </item>
        <item>
-        <widget class="QLineEdit" name="ipInput">
+        <widget class="QLineEdit" name="lineEdit_IP">
          <property name="maximumSize">
           <size>
            <width>150</width>
@@ -37,19 +41,19 @@
           </size>
          </property>
          <property name="text">
-          <string>192.168.178.55</string>
+          <string>192.168.178.57</string>
          </property>
         </widget>
        </item>
        <item>
-        <widget class="QLabel" name="label_port">
+        <widget class="QLabel" name="label_Port">
          <property name="text">
           <string>Port:</string>
          </property>
         </widget>
        </item>
        <item>
-        <widget class="QSpinBox" name="portInput">
+        <widget class="QSpinBox" name="spinBox_Port">
          <property name="maximumSize">
           <size>
            <width>80</width>
@@ -68,27 +72,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QLabel" name="label_apikey">
-         <property name="text">
-          <string>API Key:</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QLineEdit" name="apiKeyInput">
-         <property name="maximumSize">
-          <size>
-           <width>200</width>
-           <height>16777215</height>
-          </size>
-         </property>
-         <property name="placeholderText">
-          <string>Optional</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QPushButton" name="connectButton">
+        <widget class="QPushButton" name="pushButton_Connect">
          <property name="text">
           <string>Connect</string>
          </property>
@@ -113,9 +97,9 @@
     <item>
      <widget class="QTabWidget" name="tabWidget">
       <property name="currentIndex">
-       <number>2</number>
+       <number>1</number>
       </property>
-      <widget class="QWidget" name="liveViewTab">
+      <widget class="QWidget" name="tab_LiveView">
        <attribute name="title">
         <string>Live View</string>
        </attribute>
@@ -142,27 +126,7 @@
         <item>
          <layout class="QHBoxLayout" name="horizontalLayout_2">
           <item>
-           <widget class="QLabel" name="label_fps">
-            <property name="text">
-             <string>FPS:</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QSpinBox" name="fpsSpinbox">
-            <property name="minimum">
-             <number>1</number>
-            </property>
-            <property name="maximum">
-             <number>15</number>
-            </property>
-            <property name="value">
-             <number>8</number>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QPushButton" name="streamButton">
+           <widget class="QPushButton" name="pushButton_StartStream">
             <property name="enabled">
              <bool>false</bool>
             </property>
@@ -172,7 +136,7 @@
            </widget>
           </item>
           <item>
-           <widget class="QPushButton" name="snapshotButton">
+           <widget class="QPushButton" name="pushButton_SaveSnapshot">
             <property name="enabled">
              <bool>false</bool>
             </property>
@@ -197,7 +161,7 @@
          </layout>
         </item>
         <item>
-         <widget class="QLabel" name="frameCounterLabel">
+         <widget class="QLabel" name="label_FrameCounter">
           <property name="text">
            <string>Frames: 0</string>
           </property>
@@ -205,82 +169,50 @@
         </item>
        </layout>
       </widget>
-      <widget class="QWidget" name="imageCaptureTab">
+      <widget class="QWidget" name="tab_Capture">
        <attribute name="title">
-        <string>Image Capture</string>
+        <string>Capture</string>
        </attribute>
        <layout class="QVBoxLayout" name="verticalLayout_3">
         <item>
          <layout class="QHBoxLayout" name="horizontalLayout_3">
           <item>
-           <widget class="QLabel" name="label_format">
+           <widget class="QLabel" name="label_Format">
             <property name="text">
              <string>Format:</string>
             </property>
            </widget>
           </item>
           <item>
-           <widget class="QComboBox" name="formatCombo">
-            <item>
-             <property name="text">
-              <string>jpeg</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>png</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>raw</string>
-             </property>
-            </item>
-           </widget>
+           <widget class="QComboBox" name="comboBox_Format"/>
           </item>
           <item>
-           <widget class="QLabel" name="label_palette">
+           <widget class="QLabel" name="label_Palette">
             <property name="text">
              <string>Palette:</string>
             </property>
            </widget>
           </item>
           <item>
-           <widget class="QComboBox" name="paletteCombo">
-            <item>
-             <property name="text">
-              <string>iron</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>gray</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>rainbow</string>
-             </property>
-            </item>
-           </widget>
+           <widget class="QComboBox" name="comboBox_Palette"/>
           </item>
           <item>
-           <widget class="QLabel" name="label_scale">
+           <widget class="QLabel" name="label_Camera">
             <property name="text">
-             <string>Scale:</string>
+             <string>Camera:</string>
             </property>
            </widget>
           </item>
           <item>
-           <widget class="QComboBox" name="scaleCombo">
+           <widget class="QComboBox" name="comboBox_Camera">
             <item>
              <property name="text">
-              <string>linear</string>
+              <string>Thermal</string>
              </property>
             </item>
             <item>
              <property name="text">
-              <string>histogram</string>
+              <string>RGB</string>
              </property>
             </item>
            </widget>
@@ -303,7 +235,7 @@
         <item>
          <layout class="QHBoxLayout" name="horizontalLayout_4">
           <item>
-           <widget class="QPushButton" name="captureButton">
+           <widget class="QPushButton" name="pushButton_Capture">
             <property name="enabled">
              <bool>false</bool>
             </property>
@@ -313,12 +245,12 @@
            </widget>
           </item>
           <item>
-           <widget class="QPushButton" name="saveToSdButton">
+           <widget class="QPushButton" name="pushButton_Download">
             <property name="enabled">
              <bool>false</bool>
             </property>
             <property name="text">
-             <string>Save to SD Card</string>
+             <string>Download</string>
             </property>
            </widget>
           </item>
@@ -338,7 +270,7 @@
          </layout>
         </item>
         <item>
-         <widget class="QLabel" name="capturedImageLabel">
+         <widget class="QLabel" name="label_CapturedImage">
           <property name="minimumSize">
            <size>
             <width>640</width>
@@ -358,7 +290,7 @@
         </item>
        </layout>
       </widget>
-      <widget class="QWidget" name="telemetryTab">
+      <widget class="QWidget" name="tab_Telemetry">
        <attribute name="title">
         <string>Telemetry</string>
        </attribute>
@@ -366,14 +298,14 @@
         <item>
          <layout class="QHBoxLayout" name="horizontalLayout_5">
           <item>
-           <widget class="QCheckBox" name="autoRefreshCheckbox">
+           <widget class="QCheckBox" name="checkBox_AutoRefresh">
             <property name="text">
              <string>Auto Refresh</string>
             </property>
            </widget>
           </item>
           <item>
-           <widget class="QPushButton" name="refreshButton">
+           <widget class="QPushButton" name="pushButton_Refresh">
             <property name="enabled">
              <bool>false</bool>
             </property>
@@ -398,46 +330,116 @@
          </layout>
         </item>
         <item>
-         <widget class="QLabel" name="uptimeLabel">
-          <property name="text">
-           <string>Uptime: N/A</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QLabel" name="sensorTempLabel">
-          <property name="text">
-           <string>Sensor Temperature: N/A</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QLabel" name="coreTempLabel">
-          <property name="text">
-           <string>Core Temperature: N/A</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QLabel" name="voltageLabel">
-          <property name="text">
-           <string>Supply Voltage: N/A</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QLabel" name="rssiLabel">
-          <property name="text">
-           <string>WiFi RSSI: N/A</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QLabel" name="sdCardLabel">
-          <property name="text">
-           <string>SD Card: N/A</string>
-          </property>
-         </widget>
+         <layout class="QGridLayout" name="gridLayout">
+          <item row="2" column="1">
+           <widget class="QLabel" name="label_BatteryPercentage_Value">
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+          </item>
+          <item row="4" column="0">
+           <widget class="QLabel" name="label_WiFiRSSI_Name">
+            <property name="text">
+             <string>WiFi RSSI:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="1">
+           <widget class="QLabel" name="label_BatteryCharging_Value">
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+          </item>
+          <item row="6" column="0">
+           <widget class="QLabel" name="label_Lepton_AUX_Temperature_Name">
+            <property name="text">
+             <string>Lepton AUX Temperature:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="0">
+           <widget class="QLabel" name="label_BatteryPercent_Name">
+            <property name="text">
+             <string>Battery Percent:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="6" column="1">
+           <widget class="QLabel" name="label_Lepton_AUX_Temperature_Value"/>
+          </item>
+          <item row="1" column="1">
+           <widget class="QLabel" name="label_BatteryVoltage_Value">
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+          </item>
+          <item row="5" column="0">
+           <widget class="QLabel" name="label_Lepton_FPA_Temperature_Name">
+            <property name="text">
+             <string>Lepton FPA Temperature:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <widget class="QLabel" name="label_CameraUptime_Value">
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+          </item>
+          <item row="4" column="1">
+           <widget class="QLabel" name="label_WiFiRSSI_Value">
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <widget class="QLabel" name="label_BatteryVoltage_Name">
+            <property name="text">
+             <string>Battery Voltage:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="0">
+           <widget class="QLabel" name="label_BatteryCharging_Name">
+            <property name="text">
+             <string>Battery Charging:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="0">
+           <widget class="QLabel" name="label_CameraUptime_Name">
+            <property name="text">
+             <string>Camera uptime:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="5" column="1">
+           <widget class="QLabel" name="label_Lepton_FPA_Temperature_Value">
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+          </item>
+          <item row="7" column="0">
+           <widget class="QLabel" name="label_DeviceTemperature_Name">
+            <property name="text">
+             <string>Device Temperature:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="7" column="1">
+           <widget class="QLabel" name="label_DeviceTemperature_Value">
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+          </item>
+         </layout>
         </item>
         <item>
          <spacer name="verticalSpacer">
@@ -454,19 +456,19 @@
         </item>
        </layout>
       </widget>
-      <widget class="QWidget" name="controlTab">
+      <widget class="QWidget" name="tab_Control">
        <attribute name="title">
         <string>Control</string>
        </attribute>
        <layout class="QVBoxLayout" name="verticalLayout_5">
         <item>
-         <widget class="QGroupBox" name="timeGroup">
+         <widget class="QGroupBox" name="groupBox_System">
           <property name="title">
-           <string>Time Synchronization</string>
+           <string>System</string>
           </property>
           <layout class="QHBoxLayout" name="horizontalLayout_8">
            <item>
-            <widget class="QPushButton" name="syncTimeButton">
+            <widget class="QPushButton" name="pushButton_SyncTime">
              <property name="enabled">
               <bool>false</bool>
              </property>
@@ -483,7 +485,7 @@
             </widget>
            </item>
            <item>
-            <widget class="QLineEdit" name="timezoneInput">
+            <widget class="QLineEdit" name="lineEdit_Timezone">
              <property name="text">
               <string>Europe/Berlin</string>
              </property>
@@ -506,6 +508,13 @@
          </widget>
         </item>
         <item>
+         <widget class="QGroupBox" name="groupBox_Lepton">
+          <property name="title">
+           <string>Lepton</string>
+          </property>
+         </widget>
+        </item>
+        <item>
          <spacer name="verticalSpacer_2">
           <property name="orientation">
            <enum>Qt::Vertical</enum>
@@ -520,7 +529,7 @@
         </item>
        </layout>
       </widget>
-      <widget class="QWidget" name="settingsTab">
+      <widget class="QWidget" name="tab_Settings">
        <attribute name="title">
         <string>Settings</string>
        </attribute>
@@ -537,14 +546,14 @@
            <item>
             <layout class="QHBoxLayout" name="horizontalLayout_9">
              <item>
-              <widget class="QLineEdit" name="firmwarePathInput">
+              <widget class="QLineEdit" name="lineEdit_FirmwarePath">
                <property name="readOnly">
                 <bool>true</bool>
                </property>
               </widget>
              </item>
              <item>
-              <widget class="QPushButton" name="selectFirmwareButton">
+              <widget class="QPushButton" name="pushButton_BrowseFirmware">
                <property name="text">
                 <string>Browse...</string>
                </property>
@@ -553,7 +562,7 @@
             </layout>
            </item>
            <item>
-            <widget class="QPushButton" name="uploadFirmwareButton">
+            <widget class="QPushButton" name="pushButton_UploadFirmware">
              <property name="enabled">
               <bool>false</bool>
              </property>
@@ -563,7 +572,7 @@
             </widget>
            </item>
            <item>
-            <widget class="QProgressBar" name="uploadProgress">
+            <widget class="QProgressBar" name="progressBar_UploadFirmware">
              <property name="value">
               <number>0</number>
              </property>
@@ -573,13 +582,13 @@
          </widget>
         </item>
         <item>
-         <widget class="QGroupBox" name="logGroup">
+         <widget class="QGroupBox" name="groupBox_Log">
           <property name="title">
            <string>Log</string>
           </property>
           <layout class="QVBoxLayout" name="verticalLayout_9">
            <item>
-            <widget class="QTextEdit" name="logText">
+            <widget class="QTextEdit" name="textEdit_Log">
              <property name="maximumSize">
               <size>
                <width>16777215</width>
@@ -592,7 +601,7 @@
             </widget>
            </item>
            <item>
-            <widget class="QPushButton" name="clearLogButton">
+            <widget class="QPushButton" name="pushButton_ClearLog">
              <property name="text">
               <string>Clear Log</string>
              </property>

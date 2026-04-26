@@ -1,0 +1,6 @@
+{
+    "files": [
+        "ui/mainwindow.ui",
+        "ressources.qrc"
+    ]
+}
